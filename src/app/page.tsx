@@ -87,7 +87,7 @@ export default function Home() {
       {/* Projects Section */}
       <section id="projects" className="max-w-4xl mx-auto px-4 py-16">
         <h2 className="text-4xl font-bold mb-10 text-center text-gray-800">
-          My Projects
+          ตัวอย่าง Projects
         </h2>
         <div className="grid gap-6">
           {projects.map((proj, index) => (
