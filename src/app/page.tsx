@@ -1,103 +1,152 @@
-import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
+const projects = [
+  {
+    title: "Clothing Box",
+    description: "ระบบขายเสื้อผ้าออนไลน์ รองรับการสั่งซื้อและจัดการหลังบ้าน",
+    tech: ["Next.js", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
+    url: "https://clothingbox.coopmsds.com",
+  },
+  {
+    title: "Chat Admin",
+    description: "ระบบแชทเรียลไทม์แยกข้อความจาก LINE OA สำหรับแอดมิน",
+    tech: ["Next.js", "Prisma", "MySQL", "shadcn/ui", "Tailwind"],
+    url: "https://chat.coopmsds.com",
+  },
+  {
+    title: "สหกรณ์ LINE Connect",
+    description: "ระบบ LINE Login , Messaging API และใช้ AI เชื่อมโยงกับสมาชิก",
+    tech: ["Node.js", "LINE API", "OpenAI API", "MySQL"],
+    url: "https://lin.ee/Gbv2lml",
+  },
+  {
+    title: "Election สหกรณ์",
+    description: "ระบบเลือกตั้งกรรมการสหกรณ์ออนไลน์",
+    tech: ["PHP", "JQuery", "MySQL"],
+    url: "https://election.coopmsds.com/",
+  },
+];
+
+const skills = [
+  "Next.js",
+  "React",
+  "JQuery",
+  "Node.js",
+  "PHP",
+  "python",
+  "Prisma",
+  "MySQL",
+  "Tailwind CSS",
+  "shadcn/ui",
+  "bootstrap",
+  "TypeScript",
+  "REST APIs",
+  "LINE API",
+  "OpenAI API",
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+    <div className="min-h-screen w-full text-gray-800">
+      {/* Hero Section */}
+      <section className="w-full py-20 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center">
+        <div className="max-w-2xl mx-auto px-4">
+          <h1 className="text-5xl font-extrabold mb-4">Hi, I'm a Developer</h1>
+          <p className="text-lg mb-6">
+            I build full-stack web applications using modern frameworks like
+            Next.js, Tailwind, and Prisma.
+          </p>
+          <a href="#projects">
+            <Button className="bg-white text-blue-600 hover:bg-gray-100 transition">
+              View My Work
+            </Button>
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="max-w-4xl mx-auto px-4 py-16">
+        <h2 className="text-4xl font-bold mb-8 text-center text-gray-800">
+          Skills
+        </h2>
+        <div className="flex flex-wrap justify-center gap-3">
+          {skills.map((skill, index) => (
+            <Badge
+              key={index}
+              className="text-base px-4 py-2 bg-gradient-to-r from-green-400 to-blue-400 text-white shadow-md hover:shadow-lg transition"
+            >
+              {skill}
+            </Badge>
+          ))}
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="max-w-4xl mx-auto px-4 py-16">
+        <h2 className="text-4xl font-bold mb-10 text-center text-gray-800">
+          My Projects
+        </h2>
+        <div className="grid gap-6">
+          {projects.map((proj, index) => (
+            <Card
+              key={index}
+              className="shadow-lg hover:shadow-xl transition border border-gray-200"
+            >
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-semibold mb-2 text-gray-800">
+                  {proj.title}
+                </h3>
+                <p className="text-gray-600 mb-4">{proj.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {proj.tech.map((t, i) => (
+                    <Badge
+                      key={i}
+                      className="text-sm px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white shadow-md hover:shadow-lg transition"
+                    >
+                      {t}
+                    </Badge>
+                  ))}
+                </div>
+                <Link href={proj.url} target="_blank">
+                  <Button className="bg-blue-600 text-white hover:bg-blue-700 transition">
+                    Visit Project
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="w-full bg-gradient-to-r from-gray-100 to-gray-300 py-16 text-center">
+        <div className="max-w-xl mx-auto px-4">
+          <h2 className="text-3xl font-semibold mb-4 text-gray-800">
+            Contact Me
+          </h2>
+          <p className="text-gray-600 mb-6">
+            สนใจร่วมงานหรือจ้างพัฒนาเว็บ ติดต่อผมได้ทางอีเมลหรือ jobsdb
+          </p>
+          <div className="flex justify-center gap-4">
+            <a href="mailto:notcis07@gmail.com">
+              <Button className="bg-blue-600 text-white hover:bg-blue-700 transition">
+                Email
+              </Button>
+            </a>
+            <a
+              href="https://th.jobsdb.com/th/profile/watcharit-meesonk-pFwcTY9C1j"
+              target="_blank"
+            >
+              <Button className="bg-gray-600 text-white hover:bg-gray-700 transition">
+                jobsdb
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
