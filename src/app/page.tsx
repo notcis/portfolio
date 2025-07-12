@@ -23,6 +23,12 @@ const projects = [
     url: "https://lin.ee/Gbv2lml",
   },
   {
+    title: "เวปไซต์สหกรณ์ออมทรัพย์ พม.",
+    description: "เว็บไซต์หลักของสหกรณ์ออมทรัพย์ พม.",
+    tech: ["Next.js", "PHP", "Node.js", "MySQL", "shadcn/ui", "Tailwind"],
+    url: "https://line.coopmsds.com/",
+  },
+  {
     title: "Election สหกรณ์",
     description: "ระบบเลือกตั้งกรรมการสหกรณ์ออนไลน์",
     tech: ["PHP", "JQuery", "MySQL"],
@@ -111,7 +117,7 @@ export default function Home() {
                   ))}
                 </div>
                 <Link href={proj.url} target="_blank">
-                  <Button className="bg-blue-600 text-white hover:bg-blue-700 transition">
+                  <Button className="bg-blue-600 text-white hover:bg-blue-700 transition cursor-pointer">
                     Visit Project
                   </Button>
                 </Link>
@@ -132,7 +138,7 @@ export default function Home() {
           </p>
           <div className="flex justify-center gap-4">
             <a href="mailto:notcis07@gmail.com">
-              <Button className="bg-blue-600 text-white hover:bg-blue-700 transition">
+              <Button className="bg-blue-600 text-white hover:bg-blue-700 transition cursor-pointer">
                 Email
               </Button>
             </a>
@@ -140,7 +146,7 @@ export default function Home() {
               href="https://th.jobsdb.com/th/profile/watcharit-meesonk-pFwcTY9C1j"
               target="_blank"
             >
-              <Button className="bg-gray-600 text-white hover:bg-gray-700 transition">
+              <Button className="bg-gray-600 text-white hover:bg-gray-700 transition cursor-pointer">
                 jobsdb
               </Button>
             </a>
