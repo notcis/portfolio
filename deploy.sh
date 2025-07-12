@@ -1,6 +1,6 @@
 #!/bin/bash
-cd /path/to/your-app
-git pull origin main
+cd /nextjs/portfolio
+git pull origin master
 npm install
 npm run build
-pm2 restart nextjs-app
+pm2 restart portfolio-app
