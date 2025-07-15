@@ -23,8 +23,14 @@ const projects = [
     url: "https://lin.ee/Gbv2lml",
   },
   {
-    title: "Election สหกรณ์",
-    description: "ระบบเลือกตั้งกรรมการสหกรณ์ออนไลน์",
+    title: "เวปไซต์สหกรณ์",
+    description: "เว็บไซต์หลักของสหกรณ์ที่แสดงข้อมูลและข่าวสาร",
+    tech: ["Next.js", "shadcn/ui", "Tailwind", "React Query", "MySQL"],
+    url: "https://line.coopmsds.com/",
+  },
+  {
+    title: "ระบบเลือกตั้งกรรมการสหกรณ์ฯ",
+    description: "ระบบสำหรับการเลือกตั้งกรรมการสหกรณ์ฯ ผ่านเว็บ",
     tech: ["PHP", "JQuery", "MySQL"],
     url: "https://election.coopmsds.com/",
   },
