@@ -1,5 +1,5 @@
 #!/bin/bash
-cd nextjs/portfolio/
+#cd nextjs/portfolio/
 git pull origin master
 npm install
 npm run build
