@@ -11,6 +11,13 @@ const projects = [
     url: "https://clothingbox.coopmsds.com",
   },
   {
+    title: "Booking System",
+    description: "ระบบจองคิวออนไลน์ รองรับการจองและจัดการหลังบ้าน",
+    tech: ["Next.js", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
+    url: "https://booking.coopmsds.com/",
+  },
+
+  {
     title: "Chat Admin",
     description: "ระบบแชทเรียลไทม์แยกข้อความจาก LINE OA สำหรับแอดมิน",
     tech: ["Next.js", "Prisma", "MySQL", "shadcn/ui", "Tailwind"],
