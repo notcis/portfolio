@@ -56,9 +56,10 @@ const skills = [
   "shadcn/ui",
   "bootstrap",
   "TypeScript",
-  "REST APIs",
   "LINE API",
   "OpenAI API",
+  "Langchain",
+  "RAG",
 ];
 
 export default function Home() {
@@ -141,7 +142,7 @@ export default function Home() {
             Contact Me
           </h2>
           <p className="text-gray-600 mb-6">
-            สนใจร่วมงานหรือจ้างพัฒนาเว็บ ติดต่อผมได้ทางอีเมลหรือ jobsdb
+            สนใจร่วมงานหรือจ้างพัฒนาเว็บ ติดต่อผมได้ทางอีเมลหรือ github
           </p>
           <div className="flex justify-center gap-4">
             <a href="mailto:notcis07@gmail.com">
@@ -149,12 +150,9 @@ export default function Home() {
                 Email
               </Button>
             </a>
-            <a
-              href="https://th.jobsdb.com/th/profile/watcharit-meesonk-pFwcTY9C1j"
-              target="_blank"
-            >
+            <a href="https://github.com/notcis" target="_blank">
               <Button className="bg-gray-600 text-white hover:bg-gray-700 transition">
-                jobsdb
+                github
               </Button>
             </a>
           </div>
