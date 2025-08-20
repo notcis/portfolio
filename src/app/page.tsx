@@ -62,9 +62,10 @@ const skills = [
   "shadcn/ui",
   "bootstrap",
   "TypeScript",
-  "REST APIs",
   "LINE API",
   "OpenAI API",
+  "Langchain",
+  "RAG",
 ];
 
 export default function Home() {
@@ -147,7 +148,7 @@ export default function Home() {
             Contact Me
           </h2>
           <p className="text-gray-600 mb-6">
-            สนใจร่วมงานหรือจ้างพัฒนาเว็บ ติดต่อผมได้ทางอีเมลหรือ jobsdb
+            สนใจร่วมงานหรือจ้างพัฒนาเว็บ ติดต่อผมได้ทางอีเมลหรือ github
           </p>
           <div className="flex justify-center gap-4">
             <a href="mailto:notcis07@gmail.com">
