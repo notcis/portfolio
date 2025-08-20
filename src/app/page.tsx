@@ -5,6 +5,12 @@ import Link from "next/link";
 
 const projects = [
   {
+    title: "Interview Assistant",
+    description: "ระบบจำลองการสัมภาษณ์งานด้วย AI",
+    tech: ["Next.js", "OpenAI API", "Hero UI", "Tailwind", "Prisma", "MySQL"],
+    url: "https://interview.coopmsds.com",
+  },
+  {
     title: "Clothing Box",
     description: "ระบบขายเสื้อผ้าออนไลน์ รองรับการสั่งซื้อและจัดการหลังบ้าน",
     tech: ["Next.js", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
@@ -14,7 +20,7 @@ const projects = [
     title: "Booking System",
     description: "ระบบจองคิวออนไลน์ รองรับการจองและจัดการหลังบ้าน",
     tech: ["Next.js", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
-    url: "https://booking.coopmsds.com/",
+    url: "https://booking.coopmsds.com",
   },
 
   {
@@ -33,13 +39,13 @@ const projects = [
     title: "เวปไซต์สหกรณ์",
     description: "เว็บไซต์หลักของสหกรณ์ที่แสดงข้อมูลและข่าวสาร",
     tech: ["Next.js", "shadcn/ui", "Tailwind", "React Query", "MySQL"],
-    url: "https://line.coopmsds.com/",
+    url: "https://line.coopmsds.com",
   },
   {
     title: "ระบบเลือกตั้งกรรมการสหกรณ์ฯ",
     description: "ระบบสำหรับการเลือกตั้งกรรมการสหกรณ์ฯ ผ่านเว็บ",
     tech: ["PHP", "JQuery", "MySQL"],
-    url: "https://election.coopmsds.com/",
+    url: "https://election.coopmsds.com",
   },
 ];
 
@@ -149,12 +155,9 @@ export default function Home() {
                 Email
               </Button>
             </a>
-            <a
-              href="https://th.jobsdb.com/th/profile/watcharit-meesonk-pFwcTY9C1j"
-              target="_blank"
-            >
+            <a href="https://fastwork.co/user/notcis07" target="_blank">
               <Button className="bg-gray-600 text-white hover:bg-gray-700 transition">
-                jobsdb
+                fastwork
               </Button>
             </a>
           </div>
