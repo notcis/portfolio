@@ -5,6 +5,12 @@ import Link from "next/link";
 
 const projects = [
   {
+    title: "LuckyLife",
+    description: "เช็กดวง ดูสีมงคล เลขนำโชค ด้วย AI",
+    tech: ["Next.js", "OpenAI API", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
+    url: "https://horo.coopmsds.com",
+  },
+  {
     title: "Interview Assistant",
     description: "ระบบจำลองการสัมภาษณ์งานด้วย AI",
     tech: ["Next.js", "OpenAI API", "Hero UI", "Tailwind", "Prisma", "MySQL"],
