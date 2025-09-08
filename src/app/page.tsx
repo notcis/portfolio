@@ -5,6 +5,12 @@ import Link from "next/link";
 
 const projects = [
   {
+    title: "AI Resume Builder",
+    description: "สร้างเรซูเม่ด้วย AI ง่ายๆ ในไม่กี่นาที",
+    tech: ["Next.js", "Gemini", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
+    url: "https://resume.coopmsds.com",
+  },
+  {
     title: "LuckyLife",
     description: "เช็กดวง ดูสีมงคล เลขนำโชค ด้วย AI",
     tech: ["Next.js", "OpenAI API", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
@@ -113,9 +119,9 @@ export default function Home() {
       {/* Projects Section */}
       <section id="projects" className="max-w-4xl mx-auto px-4 py-16">
         <h2 className="text-4xl font-bold mb-10 text-center text-gray-800">
-          ตัวอย่าง Projects
+          Projects
         </h2>
-        <div className="grid gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((proj, index) => (
             <Card
               key={index}
@@ -138,7 +144,7 @@ export default function Home() {
                 </div>
                 <Link href={proj.url} target="_blank">
                   <Button className="bg-blue-600 text-white hover:bg-blue-700 transition">
-                    Visit Project
+                    Visit Site
                   </Button>
                 </Link>
               </CardContent>
@@ -154,7 +160,8 @@ export default function Home() {
             Contact Me
           </h2>
           <p className="text-gray-600 mb-6">
-            สนใจร่วมงานหรือจ้างพัฒนาเว็บ ติดต่อผมได้ทางอีเมลหรือ github
+            I'm open to freelance opportunities and collaborations. Feel free to
+            reach out!
           </p>
           <div className="flex justify-center gap-4">
             <a href="mailto:notcis07@gmail.com">
