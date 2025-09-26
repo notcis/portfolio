@@ -130,9 +130,9 @@ export default function Home() {
             <div className="w-full h-56 md:h-64 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-100 shadow-sm flex items-center justify-center">
               <span className="text-sm text-slate-500">
                 <Image
-                  src="avatar.svg"
+                  src="/pic-me.jpg"
                   alt="watcharit developer avatar"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-56 md:h-64 object-cover rounded-2xl backdrop-opacity-90"
                   width={256}
                   height={256}
                 />
