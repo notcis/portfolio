@@ -90,10 +90,15 @@ const skills = [
   "shadcn/ui",
   "bootstrap",
   "TypeScript",
-  "LINE API",
+  "Line Message API",
+  "LINE Login",
   "OpenAI API",
-  "Langchain",
   "RAG",
+  "Devops",
+  "Git/GitHub",
+  "aws cloud services",
+  "docker",
+  "kubernetes",
 ];
 
 export default function Home() {
@@ -109,7 +114,8 @@ export default function Home() {
             <p className="max-w-2xl mx-auto md:mx-0 text-lg text-slate-600 mb-6">
               Building clean, responsive full-stack web applications using
               Next.js, Tailwind, and Prisma. I focus on performance,
-              accessibility and simple UX.
+              accessibility and simple UX. Let's create something great
+              together!
             </p>
             <div className="flex items-center justify-center md:justify-start gap-3">
               <a href="#projects" aria-label="View projects">
