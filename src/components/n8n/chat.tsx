@@ -9,6 +9,14 @@ export default function Chat() {
       webhookUrl:
         "https://watcharit.app.n8n.cloud/webhook/c2b4b52e-43f3-4f9e-8608-ad2a34defc93/chat",
       initialMessages: ["How can I help you today?"],
+      target: "#n8n-chat",
+      mode: "window",
+      chatInputKey: "chatInput",
+      chatSessionKey: "sessionId",
+      loadPreviousSession: true,
+      metadata: {},
+      showWelcomeScreen: false,
+      defaultLanguage: "en",
       i18n: {
         en: {
           title: "Need Help?",
@@ -16,8 +24,10 @@ export default function Chat() {
           footer: "",
           getStarted: "Get Started",
           inputPlaceholder: "Type your message...",
+          closeButtonTooltip: "Close",
         },
       },
+      enableStreaming: false,
     });
   }, []);
   return <div></div>;

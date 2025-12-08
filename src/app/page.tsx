@@ -1,8 +1,14 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+// Lazy load Chat component (client-only)
+const Chat = dynamic(() => import("@/components/n8n/chat"), { ssr: false });
 
 const projects = [
   {
@@ -247,6 +253,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Chat />
     </div>
   );
 }
