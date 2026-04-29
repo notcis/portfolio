@@ -1,259 +1,237 @@
-"use client";
-
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  ExternalLink,
+  Github,
+  Linkedin,
+  PlayCircle,
+  Bot,
+  Cloud,
+  Network,
+  User,
+} from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import dynamic from "next/dynamic";
 
-// Lazy load Chat component (client-only)
-const Chat = dynamic(() => import("@/components/n8n/chat"), { ssr: false });
-
-const projects = [
-  {
-    title: "สร้าง Blog ด้วย AI",
-    description: "สร้างบทความ Blog ด้วย AI ง่ายๆ ในไม่กี่นาที",
-    tech: [
-      "Next.js",
-      "Langchain",
-      "Gemini",
-      "shadcn/ui",
-      "Tailwind",
-      "Prisma",
-      "MySQL",
-    ],
-    url: "https://blog.coopmsds.com",
-  },
-
-  {
-    title: "AI Resume Builder",
-    description: "สร้างเรซูเม่ด้วย AI ง่ายๆ ในไม่กี่นาที",
-    tech: ["Next.js", "Gemini", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
-    url: "https://resume.coopmsds.com",
-  },
-  {
-    title: "LuckyLife",
-    description: "เช็กดวง ดูสีมงคล เลขนำโชค ด้วย AI",
-    tech: ["Next.js", "OpenAI API", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
-    url: "https://horo.coopmsds.com",
-  },
-  {
-    title: "Interview Assistant",
-    description: "ระบบจำลองการสัมภาษณ์งานด้วย AI",
-    tech: ["Next.js", "OpenAI API", "Hero UI", "Tailwind", "Prisma", "MySQL"],
-    url: "https://interview.coopmsds.com",
-  },
-  {
-    title: "Clothing Box",
-    description: "ระบบขายเสื้อผ้าออนไลน์ รองรับการสั่งซื้อและจัดการหลังบ้าน",
-    tech: ["Next.js", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
-    url: "https://clothingbox.coopmsds.com",
-  },
-  {
-    title: "Booking System",
-    description: "ระบบจองคิวออนไลน์ รองรับการจองและจัดการหลังบ้าน",
-    tech: ["Next.js", "shadcn/ui", "Tailwind", "Prisma", "MySQL"],
-    url: "https://booking.coopmsds.com",
-  },
-
-  {
-    title: "Chat Admin",
-    description: "ระบบแชทเรียลไทม์แยกข้อความจาก LINE OA สำหรับแอดมิน",
-    tech: ["Next.js", "Prisma", "MySQL", "shadcn/ui", "Tailwind"],
-    url: "https://chat.coopmsds.com",
-  },
-  {
-    title: "สหกรณ์ LINE Connect",
-    description: "ระบบ LINE Login , Messaging API และใช้ AI เชื่อมโยงกับสมาชิก",
-    tech: ["Node.js", "LINE API", "OpenAI API", "MySQL"],
-    url: "https://lin.ee/Gbv2lml",
-  },
-  {
-    title: "เวปไซต์สหกรณ์",
-    description: "เว็บไซต์หลักของสหกรณ์ที่แสดงข้อมูลและข่าวสาร",
-    tech: ["Next.js", "shadcn/ui", "Tailwind", "React Query", "MySQL"],
-    url: "https://line.coopmsds.com",
-  },
-  {
-    title: "ระบบเลือกตั้งกรรมการสหกรณ์ฯ",
-    description: "ระบบสำหรับการเลือกตั้งกรรมการสหกรณ์ฯ ผ่านเว็บ",
-    tech: ["PHP", "JQuery", "MySQL"],
-    url: "https://election.coopmsds.com",
-  },
-];
-
-const skills = [
-  "Next.js",
-  "React",
-  "JQuery",
-  "Node.js",
-  "PHP",
-  "python",
-  "Prisma",
-  "MySQL",
-  "Tailwind CSS",
-  "shadcn/ui",
-  "bootstrap",
-  "TypeScript",
-  "Line Message API",
-  "LINE Login",
-  "OpenAI API",
-  "RAG",
-  "Devops",
-  "Git/GitHub",
-  "aws cloud services",
-  "docker",
-  "kubernetes",
-];
-
-export default function Home() {
+export default function PortfolioPage() {
   return (
-    <div className="min-h-screen w-full text-slate-900 bg-white">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-sans selection:bg-blue-200 dark:selection:bg-blue-900">
       {/* Hero Section */}
-      <section className="w-full py-20 bg-gradient-to-r from-white via-slate-50 to-white text-slate-900">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center gap-10">
-          <div className="flex-1 text-center md:text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-3">
-              Hi, I'm a Developer
-            </h1>
-            <p className="max-w-2xl mx-auto md:mx-0 text-lg text-slate-600 mb-6">
-              Building clean, responsive full-stack web applications using
-              Next.js, Tailwind, and Prisma. I focus on performance,
-              accessibility and simple UX. Let's create something great
-              together!
-            </p>
-            <div className="flex items-center justify-center md:justify-start gap-3">
-              <a href="#projects" aria-label="View projects">
-                <Button className="inline-flex items-center gap-2 bg-sky-600 text-white hover:bg-sky-700 transition px-4 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2">
-                  View My Work
-                </Button>
-              </a>
-              <a href="#skills" aria-label="View skills">
-                <Button className="inline-flex items-center gap-2 border border-slate-200 bg-white text-sky-600 hover:bg-slate-50 transition px-4 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-100 focus-visible:ring-offset-1">
-                  Skills
-                </Button>
-              </a>
-            </div>
-          </div>
-
-          <div className="flex-1 max-w-xs md:max-w-sm mx-auto">
-            {/* simple clean avatar / illustration block */}
-            <div className="w-full h-56 md:h-64 rounded-2xl bg-gradient-to-br from-sky-50 to-indigo-50 border border-slate-100 shadow-sm flex items-center justify-center">
-              <span className="text-sm text-slate-500">
-                <Image
-                  src="/pic-me.jpg"
-                  alt="watcharit developer avatar"
-                  className="w-full h-56 md:h-64 object-cover rounded-2xl backdrop-opacity-90"
-                  width={256}
-                  height={256}
-                />
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="max-w-5xl mx-auto px-6 md:px-8 py-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-slate-900">
-          Skills
-        </h2>
-        <p className="text-center text-slate-600 max-w-2xl mx-auto mb-8">
-          Technologies and tools I use to build modern, maintainable
-          applications.
+      <header className="container mx-auto px-6 py-20 text-center flex flex-col items-center justify-center min-h-[60vh]">
+        <Badge
+          variant="secondary"
+          className="mb-4 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30"
+        >
+          AI & Automation Developer
+        </Badge>
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
+          Watcharit Meesonk
+        </h1>
+        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-10 leading-relaxed">
+          นำเสนอผลงานและประสบการณ์ด้านการพัฒนาปัญญาประดิษฐ์ (AI), Deep Learning,
+          การเชื่อมต่อระบบ (API Integration) และระบบอัตโนมัติ (Automation)
         </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          {skills.map((skill, index) => (
+        <div className="flex gap-4">
+          <Button asChild className="rounded-full px-8">
+            <Link href="#contact">ติดต่อฉัน</Link>
+          </Button>
+          <Button asChild variant="outline" className="rounded-full px-8">
+            <Link href="#projects">ดูผลงาน</Link>
+          </Button>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-6 py-12 space-y-24" id="projects">
+        {/* Section 1: AI Chatbot & API Integration */}
+        <section>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
+              <Bot className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            </div>
+            <h2 className="text-3xl font-bold">AI Chatbot & API Integration</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ProjectCard
+              title="ระบบ AI ตรวจสอบสลิปโอนเงินผ่าน LINE OA"
+              description="พัฒนาโซลูชันตรวจสอบสลิปธนาคารอัตโนมัติผ่าน LINE Messaging API เพื่อความรวดเร็วและแม่นยำในการทำธุรกรรม"
+              linkText="ชมวิดีโอสาธิต"
+              linkHref="https://youtu.be/6DtQJdFbQnM?si=6Rim05qD-_OVpXkE"
+              tags={["LINE API", "LLM"]}
+            />
+            <ProjectCard
+              title="ระบบ AI ตอบคำถามและจองโต๊ะ (RAG System)"
+              description="ออกแบบระบบสนทนาอัจฉริยะที่เชื่อมต่อกับฐานข้อมูลเฉพาะ (Retrieval-Augmented Generation) เพื่อให้ AI ตอบคำถามและดำเนินการจองได้ในตัวเดียว"
+              linkText="ชมวิดีโอสาธิต"
+              linkHref="https://youtu.be/ifc73eAZQII?si=sLqe_fB-boqels7D"
+              tags={["RAG", "LLM", "Chatbot"]}
+            />
+            <ProjectCard
+              title="AI วิเคราะห์หุ้นและส่งสัญญาณเข้า LINE OA"
+              description="สร้างระบบวิเคราะห์ทิศทางตลาดและส่งสัญญาณการลงทุนให้นักลงทุนแบบ Real-time"
+              linkText="ชมวิดีโอสาธิต"
+              linkHref="https://youtu.be/wgRB1HlkCgg?si=Z7TEnRSdaXk1bR7h"
+              tags={["Data Analysis", "Real-time API", "LINE API"]}
+            />
+            <ProjectCard
+              title="Image Generation & Transformation"
+              description="พัฒนาระบบใช้ AI เปลี่ยนรูปภาพสินค้าทั่วไปให้เป็นภาพโฆษณาระดับมืออาชีพ ผ่าน LINE OA"
+              linkText="ชมวิดีโอสาธิต"
+              linkHref="https://youtu.be/gBl8XF5OVLM?si=_s3TciF7NSIv8scX"
+              tags={["Generative AI", "Image Processing", "LINE API"]}
+            />
+          </div>
+        </section>
+
+        {/* Section 2: AI Model Development & Deployment */}
+        <section>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl">
+              <Cloud className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+            </div>
+            <h2 className="text-3xl font-bold">
+              AI Model Development & Deployment
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-6">
+            <ProjectCard
+              title="AI Model Deployment with Hugging Face"
+              description="นำโมเดล Deep Learning ขึ้นระบบ Cloud เพื่อให้ใช้งานได้จริงในรูปแบบ Web Application"
+              linkText="ลิงก์ตัวอย่างผลงาน: Hugging Face Spaces"
+              linkHref="https://huggingface.co/NotCis07/spaces"
+              tags={[
+                "Deep Learning",
+                "PyTorch",
+                "Hugging Face",
+                "Cloud Deployment",
+              ]}
+              icon={<ExternalLink className="w-4 h-4 mr-2" />}
+            />
+          </div>
+        </section>
+
+        {/* Section 3: Automation & Infrastructure */}
+        <section>
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-3 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl">
+              <Network className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+            </div>
+            <h2 className="text-3xl font-bold">Automation & Infrastructure</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ProjectCard
+              title="AI Automation Workflows with n8n"
+              description="ออกแบบการทำงานอัตโนมัติ (Workflow Orchestration) สำหรับการสร้างและจัดการเนื้อหาข่าวสารบนโซเชียลมีเดียแบบครบวงจร"
+              linkText="Facebook & TikTok: The Automator X"
+              linkHref="https://www.facebook.com/TheAutomatorX"
+              tags={["n8n", "Workflow Automation", "Social Media API"]}
+              icon={<ExternalLink className="w-4 h-4 mr-2" />}
+            />
+            <ProjectCard
+              title="Line Connect Solution"
+              description="ตัวอย่างการเชื่อมต่อระบบบริการต่างๆ ผ่านแพลตฟอร์ม LINE เพื่อความสะดวกของผู้ใช้งาน"
+              linkText="ลิงก์ตัวอย่าง: Line Connect Demo"
+              linkHref="https://lin.ee/OO4HZ4A"
+              tags={["LINE Messaging API", "System Integration"]}
+              icon={<ExternalLink className="w-4 h-4 mr-2" />}
+            />
+          </div>
+        </section>
+      </main>
+
+      {/* Footer / Contact Section */}
+      <footer id="contact" className="bg-slate-900 text-white py-16 mt-24">
+        <div className="container mx-auto px-6 text-center">
+          <div className="inline-flex items-center justify-center p-4 bg-white/10 rounded-full mb-6">
+            <User className="w-8 h-8" />
+          </div>
+          <h2 className="text-3xl font-bold mb-8">Profile & Contact</h2>
+          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+            <Button
+              variant="secondary"
+              size="lg"
+              asChild
+              className="rounded-xl w-full sm:w-auto"
+            >
+              <Link href="https://github.com/notcis" target="_blank">
+                <Github className="w-5 h-5 mr-2" />
+                GitHub (notcis)
+              </Link>
+            </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              asChild
+              className="rounded-xl w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white"
+            >
+              <Link
+                href="https://www.linkedin.com/in/watcharit-meesonk-22905b37a"
+                target="_blank"
+              >
+                <Linkedin className="w-5 h-5 mr-2" />
+                LinkedIn
+              </Link>
+            </Button>
+          </div>
+          <p className="text-slate-400 text-sm">
+            © {new Date().getFullYear()} Watcharit Meesonk. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// Reusable Project Card Component
+function ProjectCard({
+  title,
+  description,
+  linkText,
+  linkHref,
+  tags,
+  icon,
+}: any) {
+  return (
+    <Card className="group flex flex-col h-full hover:shadow-lg transition-all duration-300 border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
+      <CardHeader>
+        <CardTitle className="text-xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+          {title}
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag: string, index: number) => (
             <Badge
               key={index}
-              className="text-sm px-3 py-1 rounded-full bg-slate-100 text-slate-800 shadow-sm"
+              variant="secondary"
+              className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
             >
-              {skill}
+              {tag}
             </Badge>
           ))}
         </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="max-w-6xl mx-auto px-6 md:px-8 py-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-slate-900">
-          Projects
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((proj, index) => (
-            <Card
-              key={index}
-              className="h-full rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition transform hover:-translate-y-1 bg-white"
-            >
-              <CardContent className="p-6 flex flex-col h-full">
-                <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-semibold mb-2 text-slate-900">
-                    {proj.title}
-                  </h3>
-                  <p className="text-slate-600 mb-4">{proj.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {proj.tech.map((t, i) => (
-                      <Badge
-                        key={i}
-                        className="text-xs md:text-sm px-2 py-1 rounded-full bg-slate-100 text-slate-800 shadow-sm"
-                      >
-                        {t}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-4 flex items-center justify-between">
-                  <Link
-                    href={proj.url}
-                    target="_blank"
-                    aria-label={`Visit ${proj.title}`}
-                  >
-                    <Button className="bg-sky-600 text-white hover:bg-sky-700 transition px-3 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2">
-                      Visit Site
-                    </Button>
-                  </Link>
-                  <span className="text-xs text-slate-500">Live demo</span>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="w-full bg-slate-50 py-16">
-        <div className="max-w-3xl mx-auto px-6 md:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-3 text-slate-900">
-            Contact Me
-          </h2>
-          <p className="text-slate-600 mb-6">
-            Open to freelance opportunities and collaborations. Reach out and
-            lets build something clean and useful.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href="https://github.com/notcis"
-              aria-label="Visit GitHub profile"
-            >
-              <Button className="bg-sky-600 text-white hover:bg-sky-700 transition px-4 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2">
-                Github
-              </Button>
-            </a>
-            <a
-              href="https://fastwork.co/user/notcis07"
-              target="_blank"
-              aria-label="Fastwork profile"
-            >
-              <Button className="bg-slate-800 text-white hover:bg-slate-900 transition px-4 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 focus-visible:ring-offset-2">
-                Fastwork
-              </Button>
-            </a>
-          </div>
-        </div>
-      </section>
-      <Chat />
-    </div>
+      </CardContent>
+      <CardFooter className="pt-4 border-t border-slate-100 dark:border-slate-800">
+        <Button
+          asChild
+          variant="ghost"
+          className="w-full justify-start text-blue-600 dark:text-blue-400 hover:text-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+        >
+          <Link href={linkHref}>
+            {icon ? icon : <PlayCircle className="w-4 h-4 mr-2" />}
+            {linkText}
+          </Link>
+        </Button>
+      </CardFooter>
+    </Card>
   );
 }
