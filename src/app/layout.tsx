@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import "@n8n/chat/style.css";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,6 +30,7 @@ export default function RootLayout({
         className={`${inter.variable} ${robotoMono.variable} antialiased bg-gray-50 text-gray-800`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
