@@ -72,7 +72,7 @@ export default function Portfolio() {
               title="Infrastructure"
               skills="Docker, DigitalOcean, AWS, Ubuntu"
             />
-            <SkillCategory title="Automation" skills="n8n (Expert), GitHub" />
+            <SkillCategory title="Automation" skills="n8n, GitHub" />
             <SkillCategory
               title="Database/BaaS"
               skills="Supabase, Vercel, Pinecone, MySQL, PostgreSQL"
