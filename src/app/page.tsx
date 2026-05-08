@@ -20,30 +20,12 @@ import {
   User,
 } from "lucide-react";
 import Link from "next/link";
-import { createChat } from "@n8n/chat";
-import { useEffect } from "react";
+import dynamic from "next/dynamic";
+const Chat = dynamic(() => import("@/components/n8n/chat"), {
+  ssr: false,
+});
 
 export default function PortfolioPage() {
-  useEffect(() => {
-    createChat({
-      webhookUrl:
-        "https://n8n.vanilasky.com/webhook/5f900f5f-6b4a-4033-afcc-e7c6912ba18c/chat",
-      initialMessages: [
-        "สวัสดี! 👋",
-        "ฉันชื่อ แตงกวา เป็นผู้ช่วยตอบคำถามของ Watcharit",
-      ],
-      i18n: {
-        en: {
-          title: "สวัสดี! 👋",
-          subtitle: "AI Chatbot. ตอบคำถาม 24/7.",
-          footer: "",
-          getStarted: "New Conversation",
-          inputPlaceholder: "Type your question..",
-          closeButtonTooltip: "",
-        },
-      },
-    });
-  }, []);
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 font-sans selection:bg-blue-200 dark:selection:bg-blue-900">
       {/* Hero Section */}
@@ -207,6 +189,7 @@ export default function PortfolioPage() {
           </p>
         </div>
       </footer>
+      <Chat />
     </div>
   );
 }

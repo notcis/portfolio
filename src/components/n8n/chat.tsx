@@ -6,29 +6,22 @@ import { createChat } from "@n8n/chat";
 export default function Chat() {
   useEffect(() => {
     createChat({
-      webhookUrl:
-        "https://watcharit.app.n8n.cloud/webhook/c2b4b52e-43f3-4f9e-8608-ad2a34defc93/chat",
-      initialMessages: ["How can I help you today?"],
-      target: "#n8n-chat",
-      mode: "window",
-      chatInputKey: "chatInput",
-      chatSessionKey: "sessionId",
-      loadPreviousSession: true,
-      metadata: {},
-      showWelcomeScreen: false,
-      defaultLanguage: "en",
+      webhookUrl: process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL,
+      initialMessages: [
+        "สวัสดี! 👋",
+        "ฉันชื่อ แตงกวา เป็นผู้ช่วยตอบคำถามของ Watcharit",
+      ],
       i18n: {
         en: {
-          title: "Need Help?",
-          subtitle: "Ask me anything about this portfolio",
+          title: "สวัสดี! 👋",
+          subtitle: "AI Chatbot. ตอบคำถาม 24/7.",
           footer: "",
-          getStarted: "Get Started",
-          inputPlaceholder: "Type your message...",
-          closeButtonTooltip: "Close",
+          getStarted: "New Conversation",
+          inputPlaceholder: "Type your question..",
+          closeButtonTooltip: "",
         },
       },
-      enableStreaming: false,
     });
   }, []);
-  return <div></div>;
+  return null;
 }
