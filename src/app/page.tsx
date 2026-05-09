@@ -6,10 +6,11 @@ import {
   Github,
   Linkedin,
   Globe,
-  Play,
-  ExternalLink,
-  Bot,
-  Presentation,
+  PlayCircle,
+  Terminal,
+  Cpu,
+  LayoutTemplate,
+  Database,
 } from "lucide-react";
 
 const ChatInner = dynamic(() => import("@/components/n8n/chat"), {
@@ -18,150 +19,174 @@ const ChatInner = dynamic(() => import("@/components/n8n/chat"), {
 
 export default function Portfolio() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900 selection:bg-zinc-200">
-      <div className="max-w-3xl mx-auto px-6 py-20 md:py-32 space-y-24">
-        {/* Header & About Section */}
-        <section className="space-y-8 fade-in">
+    <main className="min-h-screen bg-zinc-50 text-zinc-900 font-sans selection:bg-zinc-200">
+      <div className="max-w-4xl mx-auto px-6 py-20 md:py-32 space-y-24">
+        {/* --- Hero Section & About --- */}
+        <section className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-900">
               Watcharit Meesonk
             </h1>
-            <p className="text-xl text-zinc-500 font-medium">
-              Software Developer & Systems Analyst
+            <p className="text-xl md:text-2xl text-zinc-500 font-medium tracking-tight">
+              Software Developer <span className="mx-2 text-zinc-300">|</span>{" "}
+              AI Developer
             </p>
           </div>
 
-          <p className="text-zinc-600 leading-relaxed text-lg max-w-2xl">
-            มีความมุ่งมั่นในการสร้างสรรค์ซอฟต์แวร์ที่ใช้งานได้จริง
-            (Utility-First) โดยเฉพาะการนำ AI
-            มาเปลี่ยนวิธีการทำงานแบบเดิมให้เป็นระบบอัตโนมัติ
-            ปัจจุบันกำลังศึกษาต่อยอดด้าน Deep Learning ด้วย PyTorch
-            เพื่อนำมาประยุกต์ใช้กับโปรเจกต์ที่ซับซ้อนยิ่งขึ้น
+          <p className="text-lg text-zinc-600 leading-relaxed max-w-3xl">
+            นักพัฒนาซอฟต์แวร์ผู้เชี่ยวชาญด้านการสร้างระบบ Automation Workflows
+            และการประยุกต์ใช้ AI ในภาคธุรกิจ มีประสบการณ์ในการสร้าง AI Agents
+            แบบ RAG และการเชื่อมต่อระบบผ่าน LINE API
+            เพื่อเพิ่มประสิทธิภาพการทำงานแบบอัตโนมัติ
           </p>
 
           <div className="flex flex-wrap gap-6 pt-4">
             <ContactLink
               href="https://portfolio-woad-chi-25.vercel.app"
-              icon={<Globe />}
+              icon={<Globe size={20} />}
               text="Website & AI Chatbot"
             />
             <ContactLink
               href="https://github.com/notcis"
-              icon={<Github />}
+              icon={<Github size={20} />}
               text="GitHub"
             />
             <ContactLink
               href="https://www.linkedin.com/in/watcharit-meesonk-22905b37a"
-              icon={<Linkedin />}
+              icon={<Linkedin size={20} />}
               text="LinkedIn"
             />
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section className="space-y-6">
-          <h2 className="text-sm font-semibold tracking-widest text-zinc-400 uppercase">
+        {/* --- Technical Skills --- */}
+        <section className="space-y-8">
+          <h2 className="text-sm font-bold tracking-widest text-zinc-400 uppercase">
             Technical Skills
           </h2>
-          <div className="flex flex-wrap gap-x-8 gap-y-4 text-zinc-800">
-            <SkillCategory
-              title="Frontend/Backend"
-              skills="Next.js, React, Prisma, PyTorch for Deep Learning"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <SkillGroup
+              icon={<Cpu className="text-zinc-400" />}
+              title="AI & Deep Learning"
+              skills="PyTorch (Neural Networks, Transfer Learning), Computer Vision, LLM & RAG"
             />
-            <SkillCategory
-              title="Infrastructure"
-              skills="Docker, DigitalOcean, AWS, Ubuntu"
+            <SkillGroup
+              icon={<Terminal className="text-zinc-400" />}
+              title="Automation & DevOps"
+              skills="n8n, Workflow Orchestration, Docker, DigitalOcean, GitHub, AWS"
             />
-            <SkillCategory title="Automation" skills="n8n, GitHub" />
-            <SkillCategory
-              title="Database/BaaS"
-              skills="Supabase, Vercel, Pinecone, MySQL, PostgreSQL"
+            <SkillGroup
+              icon={<LayoutTemplate className="text-zinc-400" />}
+              title="Development"
+              skills="Next.js, React, Node.js, PHP, Prisma, MySql, PostgreSQL"
             />
-            <SkillCategory
-              title="AI & Integration"
-              skills="RAG (Retrieval-Augmented Generation), Line Messaging API, Line Login, Better Auth, Hugging Face, LangChain, OpenAI API, Google Gemini API, Claude API"
+            <SkillGroup
+              icon={<Database className="text-zinc-400" />}
+              title="Cloud & Platforms"
+              skills="Supabase, Vercel, Hugging Face, LINE Messaging API"
             />
           </div>
         </section>
 
-        {/* AI Automation & Workflows */}
+        {/* --- Featured Projects --- */}
         <section className="space-y-8">
-          <h2 className="text-2xl font-semibold tracking-tight">
-            AI Automation & Workflows
+          <h2 className="text-sm font-bold tracking-widest text-zinc-400 uppercase">
+            Featured Projects
           </h2>
-          <div className="grid gap-10 sm:grid-cols-2">
-            <ProjectItem
-              title="ระบบพนักงานร้านอาหาร AI"
-              desc="ใช้เทคโนโลยี RAG ร่วมกับ n8n และ Supabase ตอบคำถาม จองโต๊ะ ส่งอีเมลอัตโนมัติ"
-              href="https://youtu.be/ifc73eAZQII"
-              icon={<Bot size={20} />}
-            />
-            <ProjectItem
-              title="ระบบตรวจสอบสลิปอัตโนมัติ"
-              desc="AI ตรวจสอบการโอนเงินและสรุปยอดเข้าบัญชีผ่าน LINE OA ลดงานแอดมิน 100%"
-              href="https://youtu.be/6DtQJdFbQnM"
-              icon={<Bot size={20} />}
-            />
-            <ProjectItem
-              title="AI Marketing: สร้างภาพโฆษณาไวรัล"
-              desc="เปลี่ยนรูปสินค้าให้เป็นภาพโฆษณาภายใน 20 วินาที ผ่าน LINE OA"
-              href="https://youtu.be/gBl8XF5OVLM"
-              icon={<Presentation size={20} />}
-            />
-            <ProjectItem
-              title="AI Stock Analysis"
-              desc="ระบบวิเคราะห์หุ้นสหรัฐฯ พร้อมส่งสัญญาณการลงทุนผ่าน LINE OA"
-              href="https://youtu.be/wgRB1HlkCgg"
-              icon={<Bot size={20} />}
-            />
+
+          <div className="space-y-16">
+            {/* Project Category 1 */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold tracking-tight">
+                1. AI Automation & Workflows (n8n)
+              </h3>
+              <p className="text-zinc-500">
+                สร้างระบบจัดการงานอัตโนมัติที่ช่วยลดขั้นตอนการทำงานและเพิ่มความแม่นยำด้วย
+                AI
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <ProjectCard
+                  title="AI พนักงานร้านอาหาร (RAG System)"
+                  desc="ระบบตอบคำถามและจองโต๊ะอัตโนมัติโดยใช้ n8n & Supabase"
+                  linkText="ดูวิดีโอสอน"
+                  href="https://youtu.be/ifc73eAZQII"
+                />
+                <ProjectCard
+                  title="AI ตรวจสอบสลิปโอนเงิน"
+                  desc="ระบบตรวจสอบสลิปและสรุปยอดเข้าบัญชีอัตโนมัติผ่าน LINE OA ช่วยลดงานแอดมิน 100%"
+                  linkText="ดูวิดีโอสอน"
+                  href="https://youtu.be/6DtQJdFbQnM"
+                />
+                <ProjectCard
+                  title="AI Marketing Tools"
+                  desc="ระบบเปลี่ยนรูปสินค้าเป็นภาพโฆษณาไวรัล และการใช้ AI สร้างนางแบบ/นายแบบเสมือนจริง"
+                  linkText="ดูวิดีโอสอน"
+                  href="https://youtu.be/gBl8XF5OVLM"
+                />
+                <ProjectCard
+                  title="AI Stock Analysis"
+                  desc="ระบบวิเคราะห์หุ้นสหรัฐฯ พร้อมส่งสัญญาณการลงทุนเข้า LINE OA"
+                  linkText="ดูวิดีโอสอน"
+                  href="https://youtu.be/wgRB1HlkCgg"
+                />
+              </div>
+            </div>
+
+            {/* Project Category 2 */}
+            <div className="space-y-6 border-t border-zinc-200 pt-10">
+              <h3 className="text-2xl font-semibold tracking-tight">
+                2. AI Model Deployment & Content Creation
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <ProjectCard
+                  title="AI Model Deployment on Hugging Face"
+                  desc="การนำโมเดล Deep Learning ขึ้นระบบ Cloud เพื่อใช้งานจริง"
+                  linkText="huggingface.co/NotCis07/spaces"
+                  href="https://huggingface.co/NotCis07/spaces"
+                />
+                <ProjectCard
+                  title="The Automator X"
+                  desc="ช่องข่าวสารที่ดำเนินการด้วย AI Automation Workflows 100% บน Facebook, TikTok และ YouTube"
+                  linkText="Facebook"
+                  href="https://www.facebook.com/TheAutomatorX"
+                />
+              </div>
+            </div>
+
+            {/* Project Category 3 & 4 */}
+            <div className="space-y-6 border-t border-zinc-200 pt-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                <div className="space-y-6">
+                  <h3 className="text-2xl font-semibold tracking-tight">
+                    3. Systems Integration
+                  </h3>
+                  <ProjectCard
+                    title="Line OA Connect"
+                    desc="ตัวอย่างการเชื่อมต่อระบบผ่าน Line Message API และ Line Login"
+                    linkText="ทดลองใช้งาน"
+                    href="https://lin.ee/OO4HZ4A"
+                  />
+                </div>
+                <div className="space-y-6">
+                  <h3 className="text-2xl font-semibold tracking-tight">
+                    4. Knowledge Sharing
+                  </h3>
+                  <ProjectCard
+                    title="YouTube Creator"
+                    desc="สอนการติดตั้งระบบโครงสร้างพื้นฐาน เช่น การติดตั้ง n8n V2 บน DigitalOcean ด้วย Docker เพื่อใช้งานแบบไม่จำกัด"
+                    linkText="ดูวิดีโอสอน"
+                    href="https://youtu.be/FJXmTasen4A"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* LINE API & Deployment */}
-        <section className="space-y-8">
-          <h2 className="text-2xl font-semibold tracking-tight">
-            Integration & Deployment
-          </h2>
-          <div className="flex flex-col gap-8">
-            <ListItem
-              title="Line OA Connect"
-              desc="ระบบเชื่อมต่อ Line Message API และ Line Login"
-              href="https://lin.ee/OO4HZ4A"
-            />
-            <ListItem
-              title="Hugging Face Spaces"
-              desc="การปรับใช้ AI Model บน Cloud Platform"
-              href="https://huggingface.co/NotCis07/spaces"
-            />
-            <ListItem
-              title="The Automator X"
-              desc="ช่องข่าว AI Automation (Facebook, TikTok, YouTube)"
-              href="https://www.facebook.com/TheAutomatorX"
-            />
-          </div>
-        </section>
-
-        {/* YouTube Tutorials */}
-        <section className="space-y-8">
-          <h2 className="text-sm font-semibold tracking-widest text-zinc-400 uppercase">
-            Knowledge Sharing
-          </h2>
-          <div className="space-y-6">
-            <TutorialLink
-              title="สอนติดตั้ง n8n V2 บน DigitalOcean (Docker) – ใช้งาน Workflow ไม่จำกัด!"
-              href="https://youtu.be/FJXmTasen4A"
-            />
-            <TutorialLink
-              title="ไม่ต้องจ้างนายแบบ! AI สร้างรูปสินค้าเสื้อผ้า พร้อมนายแบบ/นางแบบให้เอง"
-              href="https://youtu.be/qN-I2KtkP6I"
-            />
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="pt-12 pb-6 text-zinc-400 text-sm flex justify-between">
+        {/* --- Footer --- */}
+        <footer className="pt-12 pb-6 flex justify-between items-center border-t border-zinc-200 text-sm text-zinc-400">
           <p>© {new Date().getFullYear()} Watcharit Meesonk.</p>
-          <p>Built with Next.js & n8n Spirit.</p>
+          <p>Built with Next.js</p>
         </footer>
       </div>
       <ChatInner />
@@ -169,7 +194,7 @@ export default function Portfolio() {
   );
 }
 
-/* --- Components สำหรับ UI แบบ Border-less --- */
+/* --- Components (ช่วยให้โค้ดสะอาดตาและคุม Theme ได้ง่าย) --- */
 
 function ContactLink({
   href,
@@ -184,101 +209,65 @@ function ContactLink({
     <Link
       href={href}
       target="_blank"
-      rel="noreferrer"
-      className="flex items-center gap-2 text-zinc-500 hover:text-zinc-900 transition-colors"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 text-zinc-600 hover:text-zinc-900 transition-colors"
     >
-      {icon && <span className="w-5 h-5">{icon}</span>}
+      {icon}
       <span className="font-medium text-sm">{text}</span>
     </Link>
   );
 }
 
-function SkillCategory({ title, skills }: { title: string; skills: string }) {
+function SkillGroup({
+  icon,
+  title,
+  skills,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  skills: string;
+}) {
   return (
-    <div className="flex flex-col mb-4 min-w-[200px]">
-      <span className="text-zinc-500 text-sm mb-1">{title}</span>
-      <span className="font-medium">{skills}</span>
+    <div className="flex gap-4 p-4 rounded-2xl hover:bg-zinc-100 transition-colors">
+      <div className="mt-1">{icon}</div>
+      <div>
+        <h4 className="font-semibold text-zinc-900 mb-1">{title}</h4>
+        <p className="text-sm text-zinc-600 leading-relaxed">{skills}</p>
+      </div>
     </div>
   );
 }
 
-function ProjectItem({
+function ProjectCard({
   title,
   desc,
+  linkText,
   href,
-  icon,
 }: {
   title: string;
   desc: string;
-  href: string;
-  icon: React.ReactNode;
+  linkText?: string;
+  href?: string;
 }) {
   return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="group flex flex-col gap-3 p-4 -m-4 hover:bg-zinc-50 rounded-2xl transition-all duration-300"
-    >
-      <div className="flex items-center gap-3">
-        <div className="p-2 bg-zinc-100 rounded-lg text-zinc-600 group-hover:bg-zinc-200 transition-colors">
-          {icon}
-        </div>
-        <h3 className="font-semibold text-zinc-900 flex items-center gap-2">
+    <div className="group flex flex-col justify-between p-6 bg-white rounded-2xl shadow-sm border border-zinc-100 hover:shadow-md hover:border-zinc-200 transition-all duration-300">
+      <div className="space-y-3">
+        <h4 className="font-semibold text-zinc-900 text-lg leading-snug group-hover:text-blue-600 transition-colors">
           {title}
-          <ExternalLink
-            size={14}
-            className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-zinc-400"
-          />
-        </h3>
+        </h4>
+        <p className="text-sm text-zinc-600 leading-relaxed">{desc}</p>
       </div>
-      <p className="text-zinc-500 text-sm leading-relaxed">{desc}</p>
-    </Link>
-  );
-}
-
-function ListItem({
-  title,
-  desc,
-  href,
-}: {
-  title: string;
-  desc: string;
-  href: string;
-}) {
-  return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6"
-    >
-      <h3 className="font-semibold text-zinc-900 min-w-[200px] flex items-center gap-2 group-hover:text-blue-600 transition-colors">
-        {title}
-        <ExternalLink
-          size={14}
-          className="text-zinc-300 group-hover:text-blue-600 transition-colors"
-        />
-      </h3>
-      <p className="text-zinc-500 text-sm">{desc}</p>
-    </Link>
-  );
-}
-
-function TutorialLink({ title, href }: { title: string; href: string }) {
-  return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="group flex items-start gap-4 p-4 -m-4 hover:bg-zinc-50 rounded-2xl transition-colors"
-    >
-      <div className="mt-1 text-red-500 opacity-80 group-hover:opacity-100 transition-opacity">
-        <Play size={20} fill="currentColor" />
-      </div>
-      <h3 className="font-medium text-zinc-700 group-hover:text-zinc-900 transition-colors leading-relaxed">
-        {title}
-      </h3>
-    </Link>
+      {linkText && href && (
+        <Link
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 mt-6 text-sm font-medium text-zinc-500 hover:text-blue-600 transition-colors"
+        >
+          <PlayCircle size={16} />
+          {linkText}
+        </Link>
+      )}
+    </div>
   );
 }
